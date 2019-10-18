@@ -17,5 +17,6 @@ public:
 
 protected:
     void clearBuffer();
-    
+
 };
+#endif
