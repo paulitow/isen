@@ -1,0 +1,287 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% fphw Assignment
+% LaTeX Template
+% Version 1.0 (27/04/2019)
+%
+% This template originates from:
+% https://www.LaTeXTemplates.com
+%
+% Authors:
+% Class by Felipe Portales-Oliva (f.portales.oliva@gmail.com) with template
+% content and modifications by Vel (vel@LaTeXTemplates.com)
+%
+% Template (this file) License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[
+	12pt, % Default font size, values between 10pt-12pt are allowed
+	%letterpaper, % Uncomment for US letter paper size
+	%spanish, % Uncomment for Spanish
+]{fphw}
+
+% Template-specific packages
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+\usepackage{mathpazo} % Use the Palatino font
+
+\usepackage{graphicx} % Required for including images
+
+\usepackage{booktabs} % Required for better horizontal rules in tables
+
+\usepackage{listings} % Required for insertion of code
+
+\usepackage{enumerate} % To modify the enumerate environment
+
+%----------------------------------------------------------------------------------------
+%	ASSIGNMENT INFORMATION
+%----------------------------------------------------------------------------------------
+
+\title{Mini Projet \#1} % Assignment title
+
+\author{} % Student name
+
+\date{08/11/2019} % Due date
+
+\institute{ISEN Marseille} % Institute or school name
+
+\class{C++ et programmation orientée objet} % Course or class name
+
+\professor{Thibaut Tortosa} % Professor or teacher in charge of the assignment
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle % Output the assignment title, created automatically using the information in the custom commands above
+
+%----------------------------------------------------------------------------------------
+%	ASSIGNMENT CONTENT
+%----------------------------------------------------------------------------------------
+
+\section*{Introduction}
+
+Ce mini projet vise à développer un logiciel de dessin simple.\\
+
+Le dessin permettra de représenter plusieurs formes dans une images. Le choix et les coordonnées des formes pourront être choisis à l'aide d'un interface en ligne de commande, ou encore à l'aide d'un fichier de configuration.\\
+
+L'enregistrement des images se fera à l'aide de la librairie stb image.
+
+
+\section*{Critères de notation}
+
+Le projet sera dans un premier temps guidé par un ensemble de questions. Ceci permettra de mettre en place une base minimale de développement.
+Une fois cette base mise en place, il sera demandé à chaque étudiant de choisir les fonctionnalités à ajouter à son projet. Par ailleurs, il est demandé à chaque étudiant de commenter de manière détaillée l'ensemble du code, en mettant en correspondance le code développé avec les éléments théoriques du cours.
+
+
+Le projet sera évalué selon les critères suivants :
+\begin{itemize}
+	\item Présence des fonctionnalités de base de l'application
+	\item L'implémentation des fonctionnalités de base de l'application : On cherchera à utiliser de manière pertinente les notions du cours
+	\item Présence de commentaires permettant de justifier les choixs d'implémentation
+	\item Choix et implémentation des fonctionnalités supplémentaires permettant de mettre en avant les notions du cours
+\end{itemize}
+
+
+\section*{Mise en place}
+
+\begin{problem}
+	Prise en main du code source
+\end{problem}
+
+\subsection*{Procédure}
+
+Dans un premier temps, vérifier l'installation du paquet buil-essential
+\begin{verbatim}
+	sudo apt-get install build-essential
+\end{verbatim}
+
+Celui-ci installe plusieurs compilateurs de C et C++, ainsi que la commande \verb"make"
+
+Installer ensuite le paquet zip
+\begin{verbatim}
+	sudo apt-get install zip
+\end{verbatim}
+
+Une fois les paquets installé, choisir un répertoire de travail et y copier le projet miniproject.zip
+Déziper ensuite le projet puis entrer dans le répertoire créé
+\begin{verbatim}
+	unzip miniproject.zip
+	cd miniproject-isen
+\end{verbatim}
+
+Vérifier la compilation du programme :
+\begin{verbatim}
+	make
+\end{verbatim}
+
+Vérifier la compilation du projet puis exécuter le programme résultant :
+
+\begin{verbatim}
+	./FigureCreator
+\end{verbatim}
+
+Le programme a alors produit une image nommée \textbf{test\_image.bmp}. L'ouvrir afin de vérifier son contenu. On doit obtenir l'image suivante :
+
+\begin{center}
+	\includegraphics[scale=0.5]{test_image.png}
+\end{center}
+
+Votre environnement de travail est maintenant prêt.
+
+%----------------------------------------------------------------------------------------
+
+\section*{Présentation du projet}
+
+\subsection*{Arborescence du projet}
+
+Dans le répertoire de travail, on trouve les fichiers et répertoires suivants :
+\begin{itemize}
+	\item [assignment :] Contient ce document,
+	\item [extern :] Contient les librairies externes,
+	\item [src :] Contient le code source des classes du projet,
+	\item [makefile :] Fichier permettant de configurer la compilation,
+	\item [miniproj.cpp :] Fichier contenant le \textbf{main}. \\
+\end{itemize}
+
+Lors du développement du projet, les classes ajoutées au projet seront ajoutées dans le répertoire src. Il s'agira alors de modifier le fichier makefile pour ajouter la nouvelle classe au projet.
+
+\subsection*{Architecture du projet}
+
+Actuellement, le projet est constitué des éléments suivants :
+\begin{enumerate}
+	\item Une classe \textbf{Drawing} permettant de représenter le dessin que nous allons réaliser, contenus dans les fichiers \emph{Drawing.h} et \emph{Drawing.cpp}
+	\item Un \textbf{main} contenu dans le fichier miniproj.cpp \\
+\end{enumerate}
+
+La classe \textbf{Drawing} a les attributs suivants :
+\begin{itemize}
+	\item [width :] largeur de l'image. Cet attribut est constant et défini à la construction de l'objet
+	\item [height :] hauteur de l'image. Cet attribut est constant et défini à la construction de l'objet
+	\item [image :] contenu de l'image, stocké dans un vecteur de \emph{char} \\
+\end{itemize}
+
+Elle a les méthodes suivantes :
+\begin{itemize}
+	\item [Drawing :] Constructeur de l'objet. Permet d'initialiser width et height, puis d'allouer la mémoire nécessaire au stockage de l'image.
+	\item [~Drawing :] Destructeur de l'objet
+	\item [clearImage :] Remplit l'image de pixels à 0
+	\item [createTestImage :] Remplit l'image avec une image de test. Ceci permet de vérifier le fonctionnement de la classe
+	\item [save :] Permet d'enregistrer l'image créée. Pour le moment, cette méthode crée une image de test avant de l'enregistrer. \\
+\end{itemize}
+
+Le \textbf{main} crée une instance de \textbf{Drawing} puis enregistre une image de test dans un fichier.
+
+
+%----------------------------------------------------------------------------------------
+
+\section*{Question 1}
+
+\begin{problem}
+	Créer une classe \textbf{Figure} permettant de représenter une Figure quelconque dans l'espace de la classe \textbf{Drawing}. On pourra s'inspirer d'un exercice que nous avons fait précédemment.
+\end{problem}
+
+%------------------------------------------------
+
+\subsection*{Précisions}
+
+\begin{enumerate}
+	\item La classe \textbf{Figure} devra être écrite dans deux fichiers séparés, \emph{Figure.h} et \emph{Figure.cpp}
+	\item Le Makefile devra alors être modifié pour inclure ces fichiers
+	\item La classe \textbf{Figure} aura un attribut permettant de représenter son image au même format que l'image contenue dans \textbf{Drawing}
+	\item La classe \textbf{Figure} aura un attribut de largeur et de hauteur permettant de représenter sa taille
+	\item La classe \textbf{Figure} aura une méthode virtuelle pure visant à dessiner la forme dans un tableau passé en paramètre
+	\item La méthode \emph{setPoint} mettra le pixel visé à 255 et non à 1
+	\item Une méthode devra être implémentée pour retourner l'image de la figure, sans que celle-ci ne puisse être modifiée.
+\end{enumerate}
+
+%----------------------------------------------------------------------------------------
+
+\section*{Question 2}
+
+\begin{problem}
+	Créer des classes dérivées de la classe \textbf{Figure}.
+
+\begin{enumerate}
+	\item Créer la classe \textbf{FigCross}
+	\item Créer la classe \textbf{FigRectangle}
+	\item Créer la classe \textbf{FigSquare}
+	\item Créer la classe \textbf{FigSegment}
+\end{enumerate}
+
+\end{problem}
+
+%------------------------------------------------
+
+\subsection*{Précisions}
+
+\begin{itemize}
+	\item Chaque classe devra être écrite dans deux nouveaux fichiers (.h et .cpp)
+	\item Il pourra également être utile d'ajouter la classe \textbf{Point} et la classe \textbf{Segment} au projet
+\end{itemize}
+
+%----------------------------------------------------------------------------------------
+
+\section*{Question 3}
+
+\begin{problem}
+
+	Réaliser les modifications suivantes dans la classe \textbf{Drawing} :
+
+	\begin{enumerate}
+		\item Ajouter la possibilité de stocker un ensemble d'objets de type \textbf{Figure}
+		\item Ajouter la possibilité de stocker les coordonnées correspondant ces objets
+		\item Ajouter une méthode \emph{draw} permettant de dessiner l'ensemble de ces figures dans l'attribut image
+		\item Modifier la méthode \emph{save} pour qu'elle remplace son appel à la méthode \emph{createTestImage} par un appel à la méthode \emph{draw}
+	\end{enumerate}
+
+\end{problem}
+
+%------------------------------------------------
+
+\section*{Question 4}
+
+\begin{problem}
+	Réaliser une classe \textbf{Menu} implémentant un menu interractif en ligne de commande permettant d'interragir avec un objet de type \textbf{Drawing}.
+	Pour cela, il implémentera une fonction \textbf{run} sous forme d'une boucle, qui interragira avec (cin, cout) l'utilisateur et lui permettra de réaliser les opérations suivantes :
+	\begin{enumerate}
+		\item Ajouter une figure et choisir son type, ses caractéristiques et ses coordonnées
+		\item Sauvegarder l'image dans un fichier au format BMP
+		\item Quitter le programme
+	\end{enumerate}
+
+	Le \emph{main} pourra créer une instance de cet objet et lancer la méthode \emph{run} afin de configurer et de sauvegarder des dessins.
+\end{problem}
+
+
+\subsection*{Précisions}
+
+Cette question pourra éventuellement impliquer la création de plus d'une classe
+
+
+%------------------------------------------------
+
+\section*{Question 5}
+
+\begin{problem}
+	Ajouter de nouvelles fonctionnalités au logiciels. Plusieurs axes d'enrichissement du logiciel peuvent être envisagés :
+	\begin{enumerate}
+		\item Ajout de figures
+		\item Création de figures à partir d'autres figures
+		\item Ajout de moyen de transformation de figure ou du dessin (rotation, translation)
+		\item Ajout de caractéristiques pour les figures (épaisseur de trait, intensité de pixel)
+		\item Utilisation d'un fichier de configuration pour la création des figures
+	\end{enumerate}
+
+	Le \emph{main} pourra créer une instance de cet objet et lancer la méthode \emph{run} afin de configurer et de sauvegarder des dessins
+\end{problem}
+
+
+
+
+\end{document}
