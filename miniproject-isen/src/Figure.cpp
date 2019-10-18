@@ -1,6 +1,9 @@
 #include "Drawing.h"
+#include "Cross.h"
+//#include "Square.h"
 #include <iostream>
 #include <stdlib.h>
+
 
 
 
@@ -73,3 +76,8 @@ class Figure {
     int width;
     int height;
 };
+
+
+
+
+

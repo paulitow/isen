@@ -5,6 +5,8 @@
 #include <string>
 #include <vector>
 
+
+
 class Figure {
 public:
     Figure(const int width, const int height);
