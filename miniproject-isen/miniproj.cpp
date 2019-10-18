@@ -2,6 +2,7 @@
 #include <string>
 
 #include "Drawing.h"
+#include "Figure.h"
 
 const int width = 300;
 const int height = 400;
