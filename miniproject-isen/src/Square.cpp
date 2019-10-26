@@ -1,7 +1,7 @@
 #include "Drawing.h"
 #include <iostream>
 #include <stdlib.h>
-#include "Figure.h"
+//#include "Figure.h"
 #include "Rectangle.h"
 
 
