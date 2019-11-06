@@ -19,6 +19,12 @@ public:
 
 protected:
     void clearBuffer();
-
+    
+    
+private:
+       
+    const int width;
+    const int height;
+    std::vector<char> forme; 
 };
 #endif

@@ -1,42 +1,40 @@
 #include "Drawing.h"
-#include "Cross.h"
+//#define STB_IMAGE_WRITE_IMPLEMENTATION
+//#include "Cross.h"
 //#include "Square.h"
 #include <iostream>
 #include <stdlib.h>
+#include <stb_image_write.h>
+#include <stdexcept>
+#include "Figure.h"
 
 
 
 
-class Figure {
-    public:
-    Figure(const int width, const int height) : width(width), height(height) {
-        buffer = new int[width*height];
+Figure::Figure(const int width, const int height) : width(width), height(height) {
+        forme.resize(width*height);
         clearBuffer();
     }
     
-    ~Figure() {
-        if(buffer != nullptr) {
-            delete buffer;
-        }
-    }
+Figure::~Figure() {}
     
-    bool setPoint(const int col, const int line) {
+bool Figure::setPoint(const int col, const int line) {
         if(col<0 || col>=width || line<0 || line>=height) {
             return false;
         } 
-        buffer[line * width + col] = 1;
+        forme[line * width + col] = 1;
         return true;
     }
         
-    bool clearPoint(const int col, const int line) {
+    bool Figure::clearPoint(const int col, const int line) {
         if(col<0 || col>=width || line<0 || line>=height) {
             return false;
         }
-        buffer[line * width + col] = 0;
+        forme[line * width + col] = 0;
         return true;
     }
 
-    void SetLine(const int line)
+    void Figure::SetLine(const int line)
     {
         for(int i = 0; i < width; i++)
         {
@@ -44,7 +42,7 @@ class Figure {
         }
     }
 
-    void SetColumn(const int col)
+    void Figure::SetColumn(const int col)
     {
         for(int i = 0; i < height; i++)
         {
@@ -52,30 +50,32 @@ class Figure {
         }
     }
         
-    virtual void draw() {
+    void Figure::draw() {
         for(int line=0; line<height; line++) {
             for(int col=0; col<width; col++) {
-                std::cout << buffer[line * width + col] << " ";
+                std::cout << forme[line * width + col] << " ";
             }
             std::cout << std::endl;
         }
         std::cout << std::endl;
     }
           
-    protected:
-    int *buffer;
+     
     
-    void clearBuffer() {
+    void Figure::clearBuffer() {
         for(int line=0; line<height; line++) {
             for(int col=0; col<width; col++) {
-                buffer[line * width + col] = 0;
+                forme[line * width + col] = 0;
             }
         }
     }
     
-    int width;
-    int height;
-};
+    
+
+    
+
+  
+
 
 
 
