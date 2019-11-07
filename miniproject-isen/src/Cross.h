@@ -6,10 +6,15 @@
 #include <vector>
 
 class Cross {
-    public:
-        Cross(const int width, const int height);
-        ~Cross();
-        void draw();
+  public:
+    Cross(const int width, const int height);
+    ~Cross();
+    void draw();
+
+  private:
+    const int width;
+    const int height;
+    std::vector<char> croix;
 
 };
 #endif

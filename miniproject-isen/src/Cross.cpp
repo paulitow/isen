@@ -2,6 +2,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include "Figure.h"
+#include "Cross.h"
 
 
 Cross::Cross(const int width, const int height)
