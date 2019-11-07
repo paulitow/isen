@@ -11,21 +11,22 @@
 
 
 
-Figure::Figure(const int width, const int height) : width(width), height(height) {
+Figure::Figure(const int width, const int height)
+  : width(width), height(height) {
         forme.resize(width*height);
         clearBuffer();
     }
-    
+
 Figure::~Figure() {}
-    
+
 bool Figure::setPoint(const int col, const int line) {
         if(col<0 || col>=width || line<0 || line>=height) {
             return false;
-        } 
+        }
         forme[line * width + col] = 1;
         return true;
     }
-        
+
     bool Figure::clearPoint(const int col, const int line) {
         if(col<0 || col>=width || line<0 || line>=height) {
             return false;
@@ -49,7 +50,7 @@ bool Figure::setPoint(const int col, const int line) {
             setPoint(col, i);
         }
     }
-        
+
     void Figure::draw() {
         for(int line=0; line<height; line++) {
             for(int col=0; col<width; col++) {
@@ -59,9 +60,9 @@ bool Figure::setPoint(const int col, const int line) {
         }
         std::cout << std::endl;
     }
-          
-     
-    
+
+
+
     void Figure::clearBuffer() {
         for(int line=0; line<height; line++) {
             for(int col=0; col<width; col++) {
@@ -69,15 +70,3 @@ bool Figure::setPoint(const int col, const int line) {
             }
         }
     }
-    
-    
-
-    
-
-  
-
-
-
-
-
-

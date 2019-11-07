@@ -4,6 +4,7 @@
 
 #include <string>
 #include <vector>
+
 class Cross {
     public:
         Cross(const int width, const int height);

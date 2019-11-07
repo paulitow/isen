@@ -4,24 +4,19 @@
 #include "Figure.h"
 
 
-class Cross : public Figure
-{
-    public:
-    Cross(const int width, const int height) : Figure(width, height)
-    {
+Cross::Cross(const int width, const int height)
+  : Figure(width, height) {
         SetLine(height/2);
         SetColumn(width/2);
+}
+
+Cross::~Cross() {
+
+  clearBuffer();
     }
 
-    ~Cross()
-    {
-        clearBuffer();
-    }
+void Cross::draw()  {
 
-    void draw()
-    {
-        std::cout << "Cross : " << std::endl;
-        Figure::draw();
-    }
-
-};
+    std::cout << "Cross : " << std::endl;
+    Figure::draw();
+}

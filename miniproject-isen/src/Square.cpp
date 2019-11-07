@@ -3,26 +3,14 @@
 #include <stdlib.h>
 //#include "Figure.h"
 #include "Rectangle.h"
+#include "Square.h"
 
+Square::Square(const int size) : Rectangle(size, size) {}
 
+Square::~Square() {}
 
+void Square::draw()
 
-
-class Square : public Rectangle {
-    public:
-    Square(const int size) : Rectangle(size, size)
-    {
-
-    }
-
-    ~Square()
-    {
-
-    }
-    
-    void draw()
-    {
-        std::cout << "Square : " << std::endl;
-        Figure::draw();
-    }
-};
+  std::cout << "Square : " << std::endl;
+  Figure::draw();
+}

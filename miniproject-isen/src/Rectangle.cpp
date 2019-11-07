@@ -5,22 +5,23 @@
 #include "Figure.h"
 
 
-Rectangle::Rectangle(const int width, const int height) : Figure(width, height)
-    {
-        SetLine(0);
-        SetLine(height-1);
+Rectangle::Rectangle(const int width, const int height)
+  : Figure(width, height) {
 
-        SetColumn(0);
-        SetColumn(width-1);
-    }
+    SetLine(0);
+    SetLine(height-1);
 
-    Rectangle::~Rectangle()
-    {
-        clearBuffer();
-    }
+    SetColumn(0);
+    SetColumn(width-1);
+}
 
-    void Rectangle::draw()
-    {
-        std::cout << "Rectangle : " << std::endl;
-        Figure::draw();
-    }
+Rectangle::~Rectangle() {
+
+  clearBuffer();
+}
+
+void Rectangle::draw() {
+
+  std::cout << "Rectangle : " << std::endl;
+  Figure::draw();
+}

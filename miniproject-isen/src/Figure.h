@@ -8,7 +8,7 @@
 
 
 class Figure {
-public:
+  public:
     Figure(const int width, const int height);
     ~Figure();
     bool setPoint(const int col, const int line);
@@ -19,12 +19,12 @@ public:
 
 protected:
     void clearBuffer();
-    
-    
+
+
 private:
-       
+
     const int width;
     const int height;
-    std::vector<char> forme; 
+    std::vector<char> forme;
 };
 #endif
