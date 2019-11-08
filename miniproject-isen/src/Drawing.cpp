@@ -34,7 +34,6 @@ void Drawing::save(std::string filename) {
 // | . \| '_>| || | |<_> | | | / ._> | ' ' |/ ._> | |  | . |/ . \/ . |<_-<
 // |  _/|_|  |_||__/ <___| |_| \___. |_|_|_|\___. |_|  |_|_|\___/\___|/__/
 // |_|
-
 /* Set every point of the image to 0 */
 void Drawing::clearImage() {
   for (std::vector<char>::iterator it = image.begin(); it != image.end();
@@ -50,4 +49,9 @@ void Drawing::createTestImage() {
       image[j * width + i] = (i + j) % 256;
     }
   }
+}
+
+void Drawing::addFigure(Figure *figure) {
+
+  figureList.push_back(figure);
 }

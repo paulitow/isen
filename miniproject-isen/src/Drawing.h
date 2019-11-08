@@ -14,6 +14,7 @@ public:
 private:
   void clearImage();
   void createTestImage();
+  void addFigure();
 
 private:
   const int width;

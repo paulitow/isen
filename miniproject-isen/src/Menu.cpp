@@ -1,33 +1,3 @@
-#include <iostream>
-#include <string>
-
-#include "Drawing.h"
-#include "Figure.h"
-
-const int width = 300;
-const int height = 400;
-const int widthF = 70;
-const int heightF = 100;
-
-int main(int argc, char **argv) {
-
-  Drawing draw(width, height);
-
-  draw.save(std::string("test_image.bmp"));
-
-  Figure Ligne(widthF, heightF);
-  Ligne.SetLine(heightF);
-  Ligne.save("Ligne.bmp");
-  Ligne.clearBuffer();
-
-  draw.addFigure(new Cross());
-
-//Menu menu;
-
-//menu.run();
-  return 0;
-}
-
 /*int GetInput()
      {
          int choice;
