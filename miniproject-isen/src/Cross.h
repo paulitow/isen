@@ -5,7 +5,7 @@
 #include <string>
 #include <vector>
 
-class Cross {
+class Cross : public Figure {
   public:
     Cross(const int width, const int height);
     ~Cross();
