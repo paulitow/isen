@@ -29,8 +29,21 @@ void Drawing::save(std::string filename) {
   }
 
   createTestImage();
-  stbi_write_bmp(filename.c_str(), width, height, 1, figureList.data());
-}s
+  stbi_write_bmp(filename.c_str(), width, height, 1, image.data());
+}
+
+void Drawing::drawFigure() {
+
+  forme = figureList->getBuffer();
+widthF = getWidth();
+heightF = getHeight();
+  for(int line=0; line<heightF; line++) {
+      for(int col=0; col<widthF; col++) {
+
+        image.at(line*width + height) = forme[line*widthF + heightF];
+      }
+  }
+}
 
 //            _             _                      _    _           _
 //  ___  _ _ <_> _ _  ___ _| |_ ___  ._ _ _  ___ _| |_ | |_  ___  _| | ___

@@ -11,6 +11,7 @@ public:
 
   void save(std::string filename);
   void addFigure(Figure *figure);
+  void drawFigure();
 
 private:
   void clearImage();
@@ -20,8 +21,11 @@ private:
 private:
   const int width;
   const int height;
+  const int widthF;
+  const int heightF;
 
   std::vector<char> image;
+  const std::vector<char> &forme;
   std::vector<Figure*> figureList;
 };
 

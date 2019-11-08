@@ -78,3 +78,18 @@ bool Figure::setPoint(const int col, const int line) {
             }
         }
     }
+
+    void getWidth() {
+
+      return widthF;
+    }
+
+    void getHeight() {
+
+      return heightF;
+    }
+
+    void getBuffer() {
+
+      return forme;
+    }

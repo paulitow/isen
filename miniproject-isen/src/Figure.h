@@ -18,10 +18,13 @@ class Figure {
     void save(std::string filename);
     void draw();
 
+    void getWidth();
+    void getHeight();
+
     void clearBuffer();
 
+    const std::vector<char> &forme;
     const int width;
     const int height;
-    std::vector<char> forme;
 };
 #endif
