@@ -20,6 +20,7 @@ class Figure {
 
     void getWidth();
     void getHeight();
+    const std::vector<char> getBuffer();
 
     void clearBuffer();
 

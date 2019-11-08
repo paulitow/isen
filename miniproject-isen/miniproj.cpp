@@ -13,7 +13,7 @@ const int heightF = 100;
 
 int main(int argc, char **argv) {
 
-  Drawing draw(width, height);
+  Drawing draw(width, height, widthF, heightF);
   draw.addFigure(new Cross(widthF, heightF));
   draw.save(std::string("Cross.bmp"));
 

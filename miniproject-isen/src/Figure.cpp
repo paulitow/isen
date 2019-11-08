@@ -79,7 +79,7 @@ bool Figure::setPoint(const int col, const int line) {
         }
     }
 
-    void getWidth() {
+  /*  void getWidth() {
 
       return widthF;
     }
@@ -87,9 +87,9 @@ bool Figure::setPoint(const int col, const int line) {
     void getHeight() {
 
       return heightF;
-    }
+    }*/
 
-    void getBuffer() {
+    std::vector<char> getBuffer() {
 
       return forme;
     }

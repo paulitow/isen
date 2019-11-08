@@ -6,7 +6,7 @@
 
 class Drawing {
 public:
-  Drawing(const int width, const int height);
+  Drawing(const int width, const int height, const int widthF, const int heightF);
   ~Drawing();
 
   void save(std::string filename);

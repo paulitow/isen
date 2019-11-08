@@ -13,8 +13,8 @@
 // |  _/`___||___/|_||_|\_|_. |_|_|_|\___. |_|  |_|_|\___/\___|/__/
 // |_|
 
-Drawing::Drawing(const int width, const int height)
-    : width(width), height(height) {
+Drawing::Drawing(const int width, const int height, const int widthF, const int heightF)
+    : width(width), height(height), widthF(widthF), heightF(heightF) {
   image.resize(width * height);
 }
 
@@ -34,9 +34,10 @@ void Drawing::save(std::string filename) {
 
 void Drawing::drawFigure() {
 
-  forme = figureList->getBuffer();
-widthF = getWidth();
-heightF = getHeight();
+  forme = figureList[0]->getBuffer();
+  //widthF = figureList[0]->getWidth();
+  //heightF = figureList[0]->getHeight();
+
   for(int line=0; line<heightF; line++) {
       for(int col=0; col<widthF; col++) {
 
