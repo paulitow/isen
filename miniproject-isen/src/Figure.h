@@ -15,13 +15,10 @@ class Figure {
     bool clearPoint(const int col, const int line);
     void SetLine(const int line);
     void SetColumn(const int col);
-    virtual void draw();
+    void save(std::string filename);
+    void draw();
 
-protected:
     void clearBuffer();
-
-
-private:
 
     const int width;
     const int height;

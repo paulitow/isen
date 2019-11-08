@@ -10,6 +10,6 @@ class Rectangle : public Figure {
     public:
         Rectangle(const int width, const int height);
         ~Rectangle();
-        virtual void draw();
+        void draw();
 };
 #endif

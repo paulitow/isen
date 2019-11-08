@@ -6,6 +6,8 @@
 
 const int width = 300;
 const int height = 400;
+const int widthF = 70;
+const int heightF = 100;
 
 int main(int argc, char **argv) {
 
@@ -13,15 +15,18 @@ int main(int argc, char **argv) {
 
   draw.save(std::string("test_image.bmp"));
 
+  Figure Ligne(widthF, heightF);
+  Ligne.SetLine(heightF);
+  Ligne.save("Ligne.bmp");
+  Ligne.clearBuffer();
+
+//Menu menu;
+
+//menu.run();
   return 0;
-
-Menu menu;
-
-menu.run();
-
 }
 
-int GetInput()
+/*int GetInput()
      {
          int choice;
         cin >> choice;
@@ -65,3 +70,4 @@ int choice = 0;
                     default:
                             break;
                    }
+*/

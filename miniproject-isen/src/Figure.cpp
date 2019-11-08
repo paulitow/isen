@@ -61,7 +61,15 @@ bool Figure::setPoint(const int col, const int line) {
         std::cout << std::endl;
     }
 
+    void Figure::save(std::string filename) {
 
+      if (filename.substr(filename.find_last_of(".") + 1) != "bmp") {
+        throw std::runtime_error(
+            "Figure ne supporte que l'enregistrement d'images au format bmp");
+      }
+
+      stbi_write_bmp(filename.c_str(), width, height, 1, forme.data());
+    }
 
     void Figure::clearBuffer() {
         for(int line=0; line<height; line++) {
