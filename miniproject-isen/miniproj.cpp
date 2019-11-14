@@ -9,18 +9,19 @@
 
 const int width = 300;
 const int height = 400;
-const int widthF = 70;
-const int heightF = 100;
-int posX= 90;
-int posY= 90;
+int widthF = 70;
+int heightF = 100;
+int posX = 90;
+int posY = 90;
 
-int main(int argc, char **argv) {
+int main(int argc, char **argv)
+{
   Figure Ligne(widthF, heightF);
   Drawing draw(width, height);
-  
 
   int choice;
-  while (1){
+  while (1)
+  {
     std::cout << "Menu\n";
     std::cout << "What figure do you want to create?\n";
     std::cout << "1 - Cross\n";
@@ -30,70 +31,99 @@ int main(int argc, char **argv) {
     std::cout << "5 - Save the figure\n";
     std::cout << "Selection: ";
     std::cin >> choice;
-    switch(choice) {
-      case 1:
-        std::cout << "Adding a Cross! Which position X ? :\n";
-        std::cin >> posX;
-        std::cout << "Which position Y ? :\n";
-        std::cin >> posY;
-        Cross * c;
+    switch (choice)
+    {
+    case 1:
+      std::cout << "Adding a Cross! Which position X ? :\n";
+      std::cin >> posX;
+      std::cout << "Which position Y ? :\n";
+      std::cin >> posY;
+      std::cout << "Which Widht ? :\n";
+      std::cin >> widthF;
+      std::cout << "Which Height ? :\n";
+      std::cin >> heightF;
+      if (posX + widthF >= width || posY + heightF >= height)
+      {
+        std::cout << "Out of range sorry ! \n";
+      }
+      else
+      {
+
+        Cross *c;
         c = new Cross(widthF, heightF);
         draw.addFigure(c);
-        draw.drawFigure(widthF, heightF,  posX , posY);
+        draw.drawFigure(widthF, heightF, posX, posY);
         delete c;
-        
-        break;
+      }
+      break;
 
-      case 2:
-       std::cout << "Adding a Square! Which position X ? :\n";
-        std::cin >> posX;
-        std::cout << "Which position Y ? :\n";
-        std::cin >> posY;
-        Square * s;
+    case 2:
+      std::cout << "Adding a Square ! Which position X ? :\n";
+      std::cin >> posX;
+      std::cout << "Which position Y ? :\n";
+      std::cin >> posY;
+      std::cout << "Which size ? :\n";
+      std::cin >> heightF;
+      if (posX + heightF >= width || posY + heightF >= height)
+      {
+        std::cout << "Out of range sorry ! \n";
+      }
+      else
+      {
+        Square *s;
         s = new Square(heightF);
         draw.addFigure(s);
-        draw.drawFigure(heightF, heightF,  posX , posY);
+        draw.drawFigure(heightF, heightF, posX, posY);
         delete s;
-        break;
+      }
+      break;
 
-      case 3:
-        std::cout << "Adding a Rectangle! Which position X ? :\n";
-        std::cin >> posX;
-        std::cout << "Which position Y ? :\n";
-        std::cin >> posY;
-        Rectangle * r;
+    case 3:
+      std::cout << "Adding a Rectangle ! Which position X ? :\n";
+      std::cin >> posX;
+      std::cout << "Which position Y ? :\n";
+      std::cin >> posY;
+      std::cout << "Which Widht ? :\n";
+      std::cin >> widthF;
+      std::cout << "Which Height ? :\n";
+      std::cin >> heightF;
+      if (posX + widthF >= width || posY + heightF >= height)
+      {
+        std::cout << "Out of range sorry ! \n";
+      }
+      else
+      {
+        Rectangle *r;
         r = new Rectangle(widthF, heightF);
         draw.addFigure(r);
-        draw.drawFigure(widthF, heightF,  posX , posY);
+        draw.drawFigure(widthF, heightF, posX, posY);
         delete r;
-        break;
+      }
+      break;
 
-      case 4:
-        std::cout << "Goodbye!";
-        return 0;
-        break;
+    case 4:
+      std::cout << "Goodbye!";
+      return 0;
+      break;
 
-      case 5:
-        std::cout << "ENREGISTREMENT....";
-        
-        draw.save(std::string("PAULITOW.bmp"));
-      default:
-        break;
+    case 5:
+      std::cout << "ENREGISTREMENT....";
+
+      draw.save(std::string("PAULITOW.bmp"));
+    default:
+      break;
     }
-
   }
-  
-  
- // Ligne.getBuffer();
-  
+
+  // Ligne.getBuffer();
 
   /*Figure Ligne(widthF, heightF);
   Ligne.SetLine(heightF);
   Ligne.save("Ligne.bmp");
   Ligne.clearBuffer();*/
 
-//Menu menu;
+  //Menu menu;
 
-//menu.run();
+  //menu.run();
   return 0;
 }
