@@ -9,7 +9,9 @@ public:
   Menu();
   ~Menu();
 
-  void save(std::string filename);
+
+  void DisplayMenu();
+
 
 private:
 
