@@ -5,14 +5,15 @@
 #include "Rectangle.h"
 #include "Square.h"
 
-Square::Square(const int size) : Rectangle(size, size) {
-new Rectangle(size,size);
-
+Square::Square(const int size) : Rectangle(size, size)
+{
+  new Rectangle(size, size);
 }
 
 Square::~Square() {}
 
-void Square::draw() {
+void Square::draw()
+{
 
   std::cout << "Square : " << std::endl;
   Figure::draw();

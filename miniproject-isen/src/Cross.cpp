@@ -4,23 +4,25 @@
 #include "Figure.h"
 #include "Cross.h"
 
-
 Cross::Cross(const int width, const int height)
-  : Figure(width, height) {
-        SetLine(height/2);
-        SetColumn(width/2);
-        
-        //save("Croix.bmp");
+    : Figure(width, height)
+{
+  SetLine(height / 2);
+  SetColumn(width / 2);
+
+  //save("Croix.bmp");
 }
 
-Cross::~Cross() {
+Cross::~Cross()
+{
 
   clearBuffer();
-    }
+}
 
-void Cross::draw()  {
+void Cross::draw()
+{
 
-    std::cout << "Cross : " << std::endl;
-    Figure::draw();
-    clearBuffer();
+  std::cout << "Cross : " << std::endl;
+  Figure::draw();
+  clearBuffer();
 }
