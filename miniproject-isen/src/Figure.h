@@ -9,7 +9,7 @@
 
 class Figure {
   public:
-    Figure(const int width, const int height);
+    Figure( const int width, const int height);
     ~Figure();
     bool setPoint(const int col, const int line);
     bool clearPoint(const int col, const int line);
@@ -20,11 +20,12 @@ class Figure {
 
     void getWidth();
     void getHeight();
-    const std::vector<char> getBuffer();
+    std::vector<char> getBuffer();
 
     void clearBuffer();
 
-    const std::vector<char> &forme;
+   std::vector<char> forme;
+//const std::vector<char> &forme;
     const int width;
     const int height;
 };

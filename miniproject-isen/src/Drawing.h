@@ -6,26 +6,31 @@
 
 class Drawing {
 public:
-  Drawing(const int width, const int height, const int widthF, const int heightF);
+  Drawing(const int width, const int height);
   ~Drawing();
 
   void save(std::string filename);
   void addFigure(Figure *figure);
-  void drawFigure();
+  void drawFigure(int widthF, int heigthF, int posX , int posY);
 
 private:
   void clearImage();
   void createTestImage();
 
+public:
+  int widthF;
+  int heightF;
+  int posX;
+  int posY;
 
 private:
   const int width;
   const int height;
-  const int widthF;
-  const int heightF;
+
+  
 
   std::vector<char> image;
-  const std::vector<char> &forme;
+  std::vector<char> forme;
   std::vector<Figure*> figureList;
 };
 

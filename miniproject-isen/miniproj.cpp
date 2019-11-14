@@ -10,11 +10,16 @@ const int width = 300;
 const int height = 400;
 const int widthF = 70;
 const int heightF = 100;
+int posX= 40;
+int posY= 90;
 
 int main(int argc, char **argv) {
 
-  Drawing draw(width, height, widthF, heightF);
+  Figure Ligne(widthF, heightF);
+  Drawing draw(width, height);
   draw.addFigure(new Cross(widthF, heightF));
+ // Ligne.getBuffer();
+  draw.drawFigure(widthF, heightF,  posX , posY);
   draw.save(std::string("Cross.bmp"));
 
   /*Figure Ligne(widthF, heightF);

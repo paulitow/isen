@@ -6,6 +6,8 @@
 #define STB_IMAGE_WRITE_IMPLEMENTATION
 #include <stb_image_write.h>
 #include <stdexcept>
+#include <iostream>
+#include <stdlib.h>
 
 //            _    _  _                     _    _           _
 //  ___  _ _ | |_ | |<_> ___  ._ _ _  ___ _| |_ | |_  ___  _| | ___
@@ -13,35 +15,40 @@
 // |  _/`___||___/|_||_|\_|_. |_|_|_|\___. |_|  |_|_|\___/\___|/__/
 // |_|
 
-Drawing::Drawing(const int width, const int height, const int widthF, const int heightF)
-    : width(width), height(height), widthF(widthF), heightF(heightF) {
-  image.resize(width * height);
+Drawing::Drawing(const int width, const int height)
+    : width(width), height(height) {
+  image.resize(width * height);//taille image finale redimensionné
+
 }
 
-Drawing::~Drawing() {}
+Drawing::~Drawing() {}//déclaration destructeur de la classe
 
 /* Save image to file "filename" */
 void Drawing::save(std::string filename) {
 
-  if (filename.substr(filename.find_last_of(".") + 1) != "bmp") {
+  if (filename.substr(filename.find_last_of(".") + 1) != "bmp") {//compare l'extension de filename au format bmp
     throw std::runtime_error(
         "Drawing ne supporte que l'enregistrement d'images au format bmp");
   }
 
-  createTestImage();
-  stbi_write_bmp(filename.c_str(), width, height, 1, image.data());
+ // createTestImage();// exemple image
+  
+  stbi_write_bmp(filename.c_str(), width, height, 1, image.data());//(TESTER avec >1) . remplissage du filename avec la forme --> forme.data()
 }
 
-void Drawing::drawFigure() {
 
-  forme = figureList[0]->getBuffer();
+
+void Drawing::drawFigure( int widthF,int heightF, int posX , int posY) {
+
+  forme = figureList[0]->getBuffer();//un tableau de vecteur de char prends les valeurs de la 1ère forme de la liste
   //widthF = figureList[0]->getWidth();
   //heightF = figureList[0]->getHeight();
+           //std::cout << static_cast<int>(forme.at(0)) << " AIe " << std::endl;
 
-  for(int line=0; line<heightF; line++) {
-      for(int col=0; col<widthF; col++) {
-
-        image.at(line*width + height) = forme[line*widthF + heightF];
+  for(int line=posY; line<posY+heightF; line++) {
+      for(int col=posX; col<posX+widthF; col++) {
+         std::cout << static_cast<int>(forme.at((line-posY)*widthF + (col-posX))) << " Aie " << std::endl;
+        image.at(line*width + col ) = forme[(line-posY)*widthF + (col-posX)];
       }
   }
 }
