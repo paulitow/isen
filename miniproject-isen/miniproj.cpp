@@ -17,39 +17,58 @@ int posY= 90;
 int main(int argc, char **argv) {
   Figure Ligne(widthF, heightF);
   Drawing draw(width, height);
-  //DisplayMenu();
+  
 
   int choice;
-  std::cin >> choice;
-  switch(choice) {
-    case 1:
-      std::cout << "A Cross!\n";
-      draw.addFigure(new Cross(widthF, heightF));
-      break;
+  while (1){
+    std::cout << "Menu\n";
+    std::cout << "What figure do you want to create?\n";
+    std::cout << "1 - Cross\n";
+    std::cout << "2 - Square\n";
+    std::cout << "3 - Rectangle\n";
+    std::cout << "4 - Quit\n";
+    std::cout << "5 - Save the figure\n";
+    std::cout << "Selection: ";
+    std::cin >> choice;
+    switch(choice) {
+      case 1:
+        std::cout << "Adding a Cross! Which position X ? :\n";
+        std::cin >> posX;
+        std::cout << "Which position Y ? :\n";
+        std::cin >> posY;
 
-    case 2:
-      std::cout << "A Square!\n";
-      
-      break;
+        draw.addFigure(new Cross(widthF, heightF));
+        draw.drawFigure(widthF, heightF,  posX , posY);
+        break;
 
-    case 3:
-      std::cout << "A Rectangle!\n";
-      
-      break;
+      case 2:
+        std::cout << "A Square!\n";
+        
+        break;
 
-    case 4:
-      std::cout << "Goodbye!";
-      system("exit");
-      break;
+      case 3:
+        std::cout << "A Rectangle!\n";
+        
+        break;
 
-    default:
-      break;
+      case 4:
+        std::cout << "Goodbye!";
+        system("exit");
+        break;
+
+      case 5:
+        std::cout << "ENREGISTREMENT....";
+        
+        draw.save(std::string("PAULITOW.bmp"));
+      default:
+        break;
+    }
+
   }
   
   
  // Ligne.getBuffer();
-  draw.drawFigure(widthF, heightF,  posX , posY);
-  draw.save(std::string("Cross.bmp"));
+  
 
   /*Figure Ligne(widthF, heightF);
   Ligne.SetLine(heightF);
