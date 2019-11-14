@@ -47,8 +47,10 @@ void Drawing::drawFigure( int widthF,int heightF, int posX , int posY) {
 
   for(int line=posY; line<posY+heightF; line++) {
       for(int col=posX; col<posX+widthF; col++) {
-         std::cout << static_cast<int>(forme.at((line-posY)*widthF + (col-posX))) << " Aie " << std::endl;
+         //std::cout << static_cast<int>(forme.at((line-posY)*widthF + (col-posX))) << " Aie " << std::endl;
+        if (static_cast<int>(image.at(line*width + col )!=255)) {
         image.at(line*width + col ) = forme[(line-posY)*widthF + (col-posX)];
+}
       }
   }
 }
@@ -60,7 +62,7 @@ void Drawing::drawFigure( int widthF,int heightF, int posX , int posY) {
 // |_|
 /* Set every point of the image to 0 */
 void Drawing::clearImage() {
-  for (std::vector<char>::iterator it = image.begin(); it != image.end();
+  for (std::vector<unsigned char>::iterator it = image.begin(); it != image.end();
        it++) {
     *it = 0;
   }

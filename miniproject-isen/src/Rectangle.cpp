@@ -13,6 +13,8 @@ Rectangle::Rectangle(const int width, const int height)
 
     SetColumn(0);
     SetColumn(width-1);
+
+    
 }
 
 Rectangle::~Rectangle() {

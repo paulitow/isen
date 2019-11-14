@@ -9,7 +9,7 @@ Cross::Cross(const int width, const int height)
   : Figure(width, height) {
         SetLine(height/2);
         SetColumn(width/2);
-
+        
         //save("Croix.bmp");
 }
 
@@ -22,4 +22,5 @@ void Cross::draw()  {
 
     std::cout << "Cross : " << std::endl;
     Figure::draw();
+    clearBuffer();
 }

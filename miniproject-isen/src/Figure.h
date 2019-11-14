@@ -20,11 +20,11 @@ class Figure {
 
     void getWidth();
     void getHeight();
-    std::vector<char> getBuffer();
+    std::vector<unsigned char> getBuffer();
 
     void clearBuffer();
 
-   std::vector<char> forme;
+   std::vector<unsigned char> forme;
 //const std::vector<char> &forme;
     const int width;
     const int height;

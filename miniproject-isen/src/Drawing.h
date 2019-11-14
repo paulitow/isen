@@ -29,8 +29,8 @@ private:
 
   
 
-  std::vector<char> image;
-  std::vector<char> forme;
+  std::vector<unsigned char> image;
+  std::vector<unsigned char> forme;
   std::vector<Figure*> figureList;
 };
 

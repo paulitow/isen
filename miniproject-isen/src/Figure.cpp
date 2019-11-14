@@ -23,7 +23,7 @@ bool Figure::setPoint(const int col, const int line) {
         if(col<0 || col>=width || line<0 || line>=height) {
             return false;
         }
-        forme[line * width + col] = 120 ;
+        forme[line * width + col] = 255 ;
         return true;
     }
 
@@ -89,7 +89,7 @@ bool Figure::setPoint(const int col, const int line) {
       return heightF;
     }*/
 
-    std::vector<char> Figure::getBuffer() {
+    std::vector<unsigned char> Figure::getBuffer() {
 
       return forme;
     }

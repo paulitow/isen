@@ -36,24 +36,41 @@ int main(int argc, char **argv) {
         std::cin >> posX;
         std::cout << "Which position Y ? :\n";
         std::cin >> posY;
-
-        draw.addFigure(new Cross(widthF, heightF));
+        Cross * c;
+        c = new Cross(widthF, heightF);
+        draw.addFigure(c);
         draw.drawFigure(widthF, heightF,  posX , posY);
+        delete c;
+        
         break;
 
       case 2:
-        std::cout << "A Square!\n";
-        
+       std::cout << "Adding a Square! Which position X ? :\n";
+        std::cin >> posX;
+        std::cout << "Which position Y ? :\n";
+        std::cin >> posY;
+        Square * s;
+        s = new Square(heightF);
+        draw.addFigure(s);
+        draw.drawFigure(heightF, heightF,  posX , posY);
+        delete s;
         break;
 
       case 3:
-        std::cout << "A Rectangle!\n";
-        
+        std::cout << "Adding a Rectangle! Which position X ? :\n";
+        std::cin >> posX;
+        std::cout << "Which position Y ? :\n";
+        std::cin >> posY;
+        Rectangle * r;
+        r = new Rectangle(widthF, heightF);
+        draw.addFigure(r);
+        draw.drawFigure(widthF, heightF,  posX , posY);
+        delete r;
         break;
 
       case 4:
         std::cout << "Goodbye!";
-        system("exit");
+        return 0;
         break;
 
       case 5:
