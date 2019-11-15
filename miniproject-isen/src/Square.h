@@ -7,6 +7,5 @@ class Square : public Rectangle {
     public:
         Square(const int size);
         ~Square();
-        void draw();
 };
 #endif

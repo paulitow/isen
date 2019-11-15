@@ -10,6 +10,5 @@ class Rectangle : public Figure {
     public:
         Rectangle(const int width, const int height);
         ~Rectangle();
-        void draw();
 };
 #endif

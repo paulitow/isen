@@ -1,7 +1,4 @@
 #include "Drawing.h"
-//#define STB_IMAGE_WRITE_IMPLEMENTATION
-//#include "Cross.h"
-//#include "Square.h"
 #include <iostream>
 #include <stdlib.h>
 #include <stb_image_write.h>
@@ -9,75 +6,52 @@
 #include "Figure.h"
 
 Figure::Figure(const int width, const int height)
-    : width(width), height(height)
-{
-    forme.resize(width * height);
-    clearBuffer();
+    : width(width), height(height) { //This is the constructor of Figure class 
+
+    forme.resize(width * height);//create an unsigned char table of size width*height
+    clearBuffer();// put values of the table to 0 --> black color
 }
 
-Figure::~Figure() {}
+Figure::~Figure() {} //This is the deconstructor of Figure class
 
-bool Figure::setPoint(const int col, const int line)
-{
-    if (col < 0 || col >= width || line < 0 || line >= height)
-    {
+bool Figure::setPoint(const int col, const int line) { //Create a 255 intensity point for the desired figure
+
+    if (col < 0 || col >= width || line < 0 || line >= height) {
+
         return false;
     }
     forme[line * width + col] = 255;
     return true;
 }
 
-bool Figure::clearPoint(const int col, const int line)
-{
-    if (col < 0 || col >= width || line < 0 || line >= height)
-    {
+bool Figure::clearPoint(const int col, const int line) { //This is a unused method of Figure class, it erases point of the figure
+
+    if (col < 0 || col >= width || line < 0 || line >= height) {
+
         return false;
     }
     forme[line * width + col] = 0;
     return true;
 }
 
-void Figure::SetLine(const int line)
-{
-    for (int i = 0; i < width; i++)
-    {
+void Figure::SetLine(const int line) { //This method uses setPoint method to draw a line
+
+    for (int i = 0; i < width; i++) {
+
         setPoint(i, line);
     }
 }
 
-void Figure::SetColumn(const int col)
-{
-    for (int i = 0; i < height; i++)
-    {
+void Figure::SetColumn(const int col) { //This method uses setPoint method to draw a column
+
+    for (int i = 0; i < height; i++) {
+
         setPoint(col, i);
     }
 }
 
-void Figure::draw()
-{
-    for (int line = 0; line < height; line++)
-    {
-        for (int col = 0; col < width; col++)
-        {
-            std::cout << forme[line * width + col] << " ";
-        }
-        std::cout << std::endl;
-    }
-    std::cout << std::endl;
-}
+void Figure::clearBuffer() { //This method is called to write black color (0) to clear the figure
 
-/*void Figure::save(std::string filename) {
-
-      if (filename.substr(filename.find_last_of(".") + 1) != "bmp") {
-        throw std::runtime_error(
-            "Figure ne supporte que l'enregistrement d'images au format bmp");
-      }
-
-      stbi_write_bmp(filename.c_str(), width, height, 1, forme.data());
-    }*/
-
-void Figure::clearBuffer()
-{
     for (int line = 0; line < height; line++)
     {
         for (int col = 0; col < width; col++)
@@ -87,17 +61,8 @@ void Figure::clearBuffer()
     }
 }
 
-/*  void getWidth() {
 
-      return widthF;
-    }
-
-    void getHeight() {
-
-      return heightF;
-    }*/
-
-std::vector<unsigned char> Figure::getBuffer()
+std::vector<unsigned char> Figure::getBuffer() //permit to extract an unsigned char vector from a list of vectors Figure
 {
 
     return forme;

@@ -10,7 +10,7 @@ Menu::Menu(){
 
 
 
-void Menu::DisplayMenu() {
+void Menu::DisplayMenu() {// at the function's call it print the menu
 
   std::cout << "Menu\n";
   std::cout << "What figure do you want to create?\n";

@@ -8,7 +8,7 @@
 Rectangle::Rectangle(const int width, const int height)
   : Figure(width, height) {
 
-    SetLine(0);
+    SetLine(0); //These Figure methods are modified to draw a rectangle
     SetLine(height-1);
 
     SetColumn(0);
@@ -20,10 +20,4 @@ Rectangle::Rectangle(const int width, const int height)
 Rectangle::~Rectangle() {
 
   clearBuffer();
-}
-
-void Rectangle::draw() {
-
-  std::cout << "Rectangle : " << std::endl;
-  Figure::draw();
 }

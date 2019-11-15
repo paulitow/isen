@@ -9,6 +9,5 @@ class Cross : public Figure {
   public:
     Cross(const int width, const int height);
     ~Cross();
-    void draw();
 };
 #endif
