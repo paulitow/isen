@@ -10,10 +10,10 @@
 //Declaration of variables
 const int width = 300;
 const int height = 400;
-int widthF = 70;
-int heightF = 100;
-int posX = 90;
-int posY = 90;
+int widthF = 0;  //width Figure
+int heightF = 0; //height Figure
+int posX = 0;
+int posY = 0;
 
 //Main function where a declared menu is calling class methods
 int main(int argc, char **argv)
@@ -36,7 +36,7 @@ int main(int argc, char **argv)
     std::cout << "\n-----------------MENU----------------------\n\n";
     std::cout << "Selection: ";
     std::cin >> prechoice;
-    choice = atoi(prechoice); //secure the input for no char. We only want int !
+    choice = atoi(prechoice);       //secure the input for no char. We only want int !
     if (choice != 0 && choice <= 4) // and int beetween 1 and 4 !
     {
       switch (choice) //Different selection depending of the value of int choice (user command line)
@@ -46,7 +46,7 @@ int main(int argc, char **argv)
         std::cin >> posX;
         std::cout << "Which position Y? :\n";
         std::cin >> posY;
-        std::cout << "Which Widht? :\n";
+        std::cout << "Which Width? :\n";
         std::cin >> widthF;
         std::cout << "Which Height? :\n";
         std::cin >> heightF;
@@ -63,8 +63,8 @@ int main(int argc, char **argv)
           draw.addFigure(c);                            //put the figure Cross in a list of vector
           draw.drawFigure(widthF, heightF, posX, posY); //write the figure at a position in the image
           delete c;
-          std::cout << "\nENREGISTREMENT....\n";
-          draw.save(std::string("image.bmp"));
+          std::cout << "\n Saving...\n";
+          draw.save(std::string("image.bmp")); //Save The image
         }
         break;
 
@@ -88,7 +88,7 @@ int main(int argc, char **argv)
           draw.addFigure(square);
           draw.drawFigure(heightF, heightF, posX, posY);
           delete square;
-          std::cout << "\nENREGISTREMENT....\n";
+          std::cout << "\n Saving...n";
           draw.save(std::string("image.bmp"));
         }
         break;
@@ -114,7 +114,7 @@ int main(int argc, char **argv)
           draw.addFigure(rect);
           draw.drawFigure(widthF, heightF, posX, posY);
           delete rect;
-          std::cout << "\nENREGISTREMENT....\n";
+          std::cout << "\n Saving....\n";
           draw.save(std::string("image.bmp"));
         }
         break;

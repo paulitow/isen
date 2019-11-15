@@ -3,9 +3,10 @@
 
 #include "Rectangle.h"
 
-class Square : public Rectangle {
-    public:
-        Square(const int size);
-        ~Square();
+class Square : public Rectangle
+{
+public:
+    Square(const int size);
+    ~Square();
 };
 #endif
